@@ -1,5 +1,6 @@
 pluginManagement {
     repositories {
+       // maven { url = uri("https://jitpack.io") }
         mavenLocal()
         gradlePluginPortal()
         google {
@@ -10,9 +11,17 @@ pluginManagement {
             }
         }
         mavenCentral()
+    }
 
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "com.github.mktowett.edge-rum") {
+                useModule("com.github.mktowett:edge-rum:${requested.version}")
+            }
+        }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {

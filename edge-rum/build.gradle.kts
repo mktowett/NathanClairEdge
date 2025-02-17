@@ -36,9 +36,14 @@ publishing {
         }
     }
     repositories {
-        maven {
-            name = "JitPack"
-            url = uri("https://jitpack.io")
-        }
+        mavenLocal()
     }
+}
+
+dependencies{
+    implementation(libs.byte.buddy)
+    implementation(libs.byte.buddy.agent)
+
+    // Optional: If you need Android-specific support
+    implementation(libs.byte.buddy.android)
 }

@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.2"
+byteBuddy = "1.14.12"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -12,6 +13,11 @@ jetbrainsKotlinJvm = "2.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
+byte-buddy = { module = "net.bytebuddy:byte-buddy", version.ref = "byteBuddy" }
+byte-buddy-agent = { module = "net.bytebuddy:byte-buddy-agent", version.ref = "byteBuddy" }
+byte-buddy-android = { module = "net.bytebuddy:byte-buddy-android", version.ref = "byteBuddy" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
