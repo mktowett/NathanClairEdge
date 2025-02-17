@@ -5,10 +5,13 @@ plugins {
     id("maven-publish")
 }
 
+group = "com.github.mktowett"
+version = "0.1.0"
+
 gradlePlugin {
     plugins {
         create("edge-rum") {
-            id = "com.nathanclair.edge"
+            id = "com.github.mktowett.edge-rum"
             implementationClass = "com.mktowett.edge_rum.EdgePlugin"
         }
     }
@@ -19,22 +22,23 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-
 kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-    }
+    jvmToolchain(11)
 }
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
-            groupId = "com.nathanclair.edge"
-            artifactId = "edge-rum-plugin"
-            version = "1.0.0"
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            groupId = "com.github.mktowett"
+            artifactId = "edge-rum"
+            version = "0.1.0"
         }
     }
     repositories {
-        mavenLocal()
+        maven {
+            name = "JitPack"
+            url = uri("https://jitpack.io")
+        }
     }
 }
